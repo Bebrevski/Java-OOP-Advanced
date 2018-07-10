@@ -1,3 +1,5 @@
+package tasks_1to6;
+
 import java.util.List;
 
 public class Box<T> {
@@ -24,9 +26,5 @@ public class Box<T> {
 
     public T getElement() {
         return this.element;
-    }
-
-    public void setElement(T element) {
-        this.element = element;
     }
 }
