@@ -7,7 +7,7 @@ import java.io.InputStreamReader;
 public class Main {
     public static void main(String[] args) throws IOException {
 
-        //Problem 5.	Generic Count Method Strings
+        //Problem 6.	Generic Count Method Doubles
 
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
