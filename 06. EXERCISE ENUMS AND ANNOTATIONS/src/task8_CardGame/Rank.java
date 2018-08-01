@@ -1,6 +1,6 @@
-package task345_CardsWithPower;
+package task8_CardGame;
 
-public enum RankPowers {
+public enum Rank {
     ACE(14),
     TWO(2),
     THREE(3),
@@ -17,7 +17,7 @@ public enum RankPowers {
 
     private int cardPower;
 
-    RankPowers(int cardPower) {
+    Rank(int cardPower) {
         this.cardPower = cardPower;
     }
 

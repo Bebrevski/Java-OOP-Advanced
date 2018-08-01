@@ -1,4 +1,4 @@
-package task345_CardsWithPower;
+package task3to7_CardsWithPower;
 
 public class Card implements Comparable<Card> {
     private RankPowers rankPowers;
