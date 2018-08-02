@@ -5,7 +5,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-public class Player {
+public class Player{
 
     private Comparator<Card> COMPARATOR = getComparator();
 
