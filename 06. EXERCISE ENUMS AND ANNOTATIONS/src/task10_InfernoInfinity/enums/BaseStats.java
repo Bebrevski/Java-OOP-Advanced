@@ -26,12 +26,4 @@ public enum BaseStats {
     public int getSockets() {
         return this.sockets;
     }
-
-    public void setMinDamage(int minDamage) {
-        this.minDamage = minDamage;
-    }
-
-    public void setMaxDamage(int maxDamage) {
-        this.maxDamage = maxDamage;
-    }
 }

@@ -6,4 +6,5 @@ public class Knife extends Weapon {
     public Knife(String name, String type) {
         super(name, type);
     }
+
 }

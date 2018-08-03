@@ -9,6 +9,8 @@ import java.util.Map;
 public abstract class Weapon {
     private String name;
     private BaseStats stats;
+    private int minDamage;
+    private int maxDamage;
     private Map<Integer, Gems> sockets;
 
     public Weapon(String name, String type) {
@@ -18,27 +20,24 @@ public abstract class Weapon {
     }
 
     public void insertGem(int index, String gemType) {
-        if (index >= 0 && index <= sockets.size()) {
+        if (index >= 0 && index <= this.stats.getSockets()) {
             this.sockets.put(index, Enum.valueOf(Gems.class, gemType.toUpperCase()));
         }
     }
 
     protected void upgradeWeapon() {
-        for (Gems gem : sockets.values()) {
-            this.stats.setMinDamage(this.stats.getMinDamage() + gem.getStrength() * 2 + gem.getAgility());
-            this.stats.setMaxDamage(this.stats.getMaxDamage() + gem.getStrength() * 3 + gem.getAgility() * 4);
-        }
+        this.minDamage = this.stats.getMinDamage();
+        this.maxDamage = this.stats.getMaxDamage();
+
+        this.minDamage += getSumStrength() * 2 + getSumAgility();
+        this.maxDamage += getSumStrength() * 3 + getSumAgility() * 4;
     }
 
     public void removeGem(int index) {
         this.sockets.remove(index);
     }
 
-    protected BaseStats getStats() {
-        return this.stats;
-    }
-
-    protected int getSumStrength(){
+    protected int getSumStrength() {
         int sum = 0;
         for (Gems gem : sockets.values()) {
             sum += gem.getStrength();
@@ -46,7 +45,7 @@ public abstract class Weapon {
         return sum;
     }
 
-    protected int getSumAgility(){
+    protected int getSumAgility() {
         int sum = 0;
         for (Gems gem : sockets.values()) {
             sum += gem.getAgility();
@@ -54,7 +53,7 @@ public abstract class Weapon {
         return sum;
     }
 
-    protected int getSumVitality(){
+    protected int getSumVitality() {
         int sum = 0;
         for (Gems gem : sockets.values()) {
             sum += gem.getVitality();
@@ -64,6 +63,15 @@ public abstract class Weapon {
 
     @Override
     public String toString() {
-        return String.format("%s: ", this.name);
+
+        this.upgradeWeapon();
+
+        return String.format("%s: %d-%d Damage, +%d Strength, +%d Agility, +%d Vitality"
+                , this.name
+                , this.minDamage
+                , this.maxDamage
+                , this.getSumStrength()
+                , this.getSumAgility()
+                , this.getSumVitality());
     }
 }
