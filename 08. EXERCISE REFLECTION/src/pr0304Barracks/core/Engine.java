@@ -9,6 +9,7 @@ import pr0304Barracks.contracts.UnitFactory;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.lang.reflect.InvocationTargetException;
 
 public class Engine implements Runnable {
 
@@ -21,7 +22,7 @@ public class Engine implements Runnable {
 	}
 
 	@Override
-	public void run() {
+	public void run() throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException {
 		BufferedReader reader = new BufferedReader(
 				new InputStreamReader(System.in));
 		while (true) {
@@ -29,7 +30,7 @@ public class Engine implements Runnable {
 				String input = reader.readLine();
 				String[] data = input.split("\\s+");
 				String commandName = data[0];
-				String result = interpredCommand(data, commandName);
+				String result = interpretedCommand(data, commandName);
 				if (result.equals("fight")) {
 					break;
 				}
@@ -43,7 +44,7 @@ public class Engine implements Runnable {
 	}
 
 	// TODO: refactor for problem 4
-	private String interpredCommand(String[] data, String commandName) throws ExecutionControl.NotImplementedException {
+	private String interpretedCommand(String[] data, String commandName) throws ExecutionControl.NotImplementedException, ClassNotFoundException, NoSuchMethodException, InstantiationException, IllegalAccessException, InvocationTargetException {
 		String result;
 		switch (commandName) {
 			case "add":
@@ -66,7 +67,7 @@ public class Engine implements Runnable {
 		return output;
 	}
 
-	private String addUnitCommand(String[] data) throws ExecutionControl.NotImplementedException {
+	private String addUnitCommand(String[] data) throws ExecutionControl.NotImplementedException, InvocationTargetException, NoSuchMethodException, ClassNotFoundException, InstantiationException, IllegalAccessException {
 		String unitType = data[1];
 		Unit unitToAdd = this.unitFactory.createUnit(unitType);
 		this.repository.addUnit(unitToAdd);
