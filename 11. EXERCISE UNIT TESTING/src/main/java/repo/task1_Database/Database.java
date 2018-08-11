@@ -1,4 +1,4 @@
-package repo;
+package repo.task1_Database;
 
 import javax.naming.OperationNotSupportedException;
 

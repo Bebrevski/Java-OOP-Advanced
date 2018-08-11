@@ -1,7 +1,9 @@
+package test1_DatabaseTests;
+
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import repo.Database;
+import repo.task1_Database.Database;
 
 import javax.naming.OperationNotSupportedException;
 
