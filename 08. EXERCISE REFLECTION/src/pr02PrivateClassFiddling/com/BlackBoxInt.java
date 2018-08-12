@@ -2,7 +2,7 @@ package pr02PrivateClassFiddling.com;
 
 public class BlackBoxInt {
 
-	private static final int DEFAULT_VALUE = 0;
+	private static final int DEFFAULT_VALUE = 0;
 
 	private int innerValue;
 
@@ -11,7 +11,7 @@ public class BlackBoxInt {
 	}
 
 	private BlackBoxInt() {
-		this.innerValue = DEFAULT_VALUE;
+		this.innerValue = DEFFAULT_VALUE;
 	}
 
 	private void add(int addend) {
