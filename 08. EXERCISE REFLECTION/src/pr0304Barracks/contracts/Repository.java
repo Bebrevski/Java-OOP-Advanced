@@ -8,5 +8,5 @@ public interface Repository {
 
 	String getStatistics();
 
-	void removeUnit(String unitType) throws ExecutionControl.NotImplementedException;
+	void removeUnit(String unitType);
 }
